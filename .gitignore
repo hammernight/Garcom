@@ -1,0 +1,7 @@
+*.*wp
+~*.*
+_Re*.*
+bin
+obj
+*.suo
+*.user
