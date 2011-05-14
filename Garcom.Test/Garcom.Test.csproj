@@ -98,6 +98,8 @@
       <DependentUpon>RegisterNewPlace.feature</DependentUpon>
     </Compile>
     <Compile Include="Functional\RegisterNewPlaceSpec.cs" />
+    <Compile Include="StepDefinition1.cs" />
+    <Compile Include="Support\SeleniumServer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -109,6 +111,7 @@
       <LastGenOutput>RegisterNewPlace.feature.cs</LastGenOutput>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
