@@ -24,13 +24,7 @@ namespace Garcom.Test.Features.Support
         {
             if (_driver == null)
             {
-
                 _driver = new ChromeDriver();
-                    
-                    //new DefaultSelenium("localhost", 4444,
-                    //                          @"*firefox3 C:\Program Files (x86)\Firefox3\firefox.exe",
-                    //                          "http://localhost/Garcom/");
-                
             }
 
             ScenarioContext.Current["selenium"] = _driver;

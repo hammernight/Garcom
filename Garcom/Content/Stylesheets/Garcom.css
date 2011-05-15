@@ -1,0 +1,75 @@
+body{
+  margin:0;
+  padding:0;
+  font-family: Georgia,"Nimbus Roman No9 L",serif;
+  font-size:12px;
+}
+
+.top,.bottom{
+  padding:20px;
+  background: #272727;
+  color:#fff;
+}
+
+.title{
+  font-size:40px;
+}
+
+.title div{
+  float:left;
+}
+
+.ultimate{
+  font-size:14px;
+}
+
+.menu{
+  font-size:14px;
+  float:right;
+  margin-top:-18px;
+}
+
+.menu ul{
+  padding:0;
+  margin:0;
+  list-style:none;
+}
+
+.menu ul li{
+  display:inline;
+  padding:8px;
+}
+
+.menu ul li:hover{
+  background:#1c567e;
+  cursor:pointer;
+}
+
+.main{
+  width:100%;
+  height:500px;
+}
+
+.pretop, .post_bottom{
+  background: #1C567E;
+  width:100%;
+  height:10px;
+}
+
+.waiter{
+  margin-left:20px;
+}
+
+.waiter img{
+  height:50px;
+}
+
+.post_top, .pre_bottom{
+  width:100%;
+  height:3px;
+  background: #030303;
+}
+
+.clear{
+  clear:both;
+}

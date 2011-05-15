@@ -4,6 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using Microsoft.Practices.ObjectBuilder2;
+using Microsoft.Practices.Unity;
+using Unity.Mvc3;
 
 namespace Garcom
 {
@@ -35,6 +38,12 @@ namespace Garcom
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
+
+            var container = new UnityContainer();
+
+            container.RegisterControllers();
+
+            DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }
     }
 }

@@ -37,6 +37,23 @@
     <Reference Include="Ionic.Zip.Reduced">
       <HintPath>..\packages\SeleniumDotNet.2.0.3\lib\net20\Ionic.Zip.Reduced.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Web.Mvc">
+      <HintPath>..\packages\Mvc3Futures.3.0.20105.0\lib\Microsoft.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Bson, Version=1.0.0.4098, Culture=neutral, PublicKeyToken=f686731cfb9cc103, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\mongocsharpdriver.1.0\lib\net35\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver, Version=1.0.0.4098, Culture=neutral, PublicKeyToken=f686731cfb9cc103, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\mongocsharpdriver.1.0\lib\net35\MongoDB.Driver.dll</HintPath>
+    </Reference>
+    <Reference Include="Moq">
+      <HintPath>..\packages\Moq.4.0.10827\lib\NET40\Moq.dll</HintPath>
+    </Reference>
+    <Reference Include="MvcContrib">
+      <HintPath>..\packages\MvcContrib.Mvc3-ci.3.0.68.0\lib\MvcContrib.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\SeleniumDotNet.2.0.3\lib\net20\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -57,6 +74,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -101,6 +119,7 @@
     <Compile Include="Features\StepDefintions\RegisterNewFeatureSteps.cs" />
     <Compile Include="Features\Support\WebDriver.cs" />
     <Compile Include="Unit\Controllers\PlacesControllerSpec.cs" />
+    <Compile Include="Unit\Repositories\AllPlacesSpec.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
