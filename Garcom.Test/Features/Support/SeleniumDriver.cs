@@ -7,7 +7,7 @@ namespace Garcom.Test.Features.Support
     public class SeleniumDriver
     {
         private static ISelenium _driver;
-        
+
         public static ISelenium Driver
         {
             get
@@ -16,12 +16,14 @@ namespace Garcom.Test.Features.Support
                 return _driver;
             }
         }
-        
+
         public static void Initialize()
         {
             if (_driver == null)
             {
-                _driver = new DefaultSelenium("localhost", 4444, @"*firefox3 C:\Program Files (x86)\Firefox3\firefox.exe", "http://localhost:6666");
+                _driver = new DefaultSelenium("localhost", 4444,
+                                              @"*firefox3 C:\Program Files (x86)\Firefox3\firefox.exe",
+                                              "http://localhost/Garcom/");
                 _driver.Start();
             }
 

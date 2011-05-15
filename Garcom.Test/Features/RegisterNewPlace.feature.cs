@@ -68,7 +68,11 @@ this.ScenarioSetup(scenarioInfo);
 #line 9
  testRunner.And("I click submit");
 #line 10
- testRunner.Then("I should see place created successfully");
+ testRunner.Then("I should be at the all places page");
+#line 11
+ testRunner.And("I should see place created successfully");
+#line 12
+ testRunner.And("I should see Pallatus");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
