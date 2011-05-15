@@ -2,7 +2,8 @@
     ViewBag.Title = "New Place";
 }
 
-@UrlHelper.GenerateUrl
-<input type="text" name="name" id="name" /> 
-<input type="submit" name="submit" id="submit" value="submit" />
+<form action="@Url.Action("index", "places")" method="post">
+    <input type="text" name="name" id="name" /> 
+    <input type="submit" name="submit" id="submit" value="submit" />
+</form>
 

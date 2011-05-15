@@ -38,8 +38,8 @@ namespace Garcom.Test.Features.StepDefintions
         [Then("I should see (.*)")]
         public void ShouldSee(string text)
         {
-            var textIsPresent = WebDriver.Driver.PageSource.Contains(text);
-            Assert.That(textIsPresent, Is.True);
+            var body = WebDriver.Driver.FindElement(By.TagName("body")).Text;
+            Assert.That(body, Is.StringContaining(text));
         }
     }
 }
