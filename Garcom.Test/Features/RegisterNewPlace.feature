@@ -7,5 +7,6 @@ Scenario: Registering a new place
 	Given I am at the register new place page
 	When I fill in the name with Pallatus
 	And I click submit
-	Then I should see place created successfully 
-
+	Then I should be at the all places page
+	And I should see place created successfully
+	And I should see Pallatus
