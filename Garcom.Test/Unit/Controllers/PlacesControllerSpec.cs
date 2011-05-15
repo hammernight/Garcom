@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using Garcom.Controllers;
 using NUnit.Framework;
 
 namespace Garcom.Test.Unit.Controllers
 {
     [TestFixture]
-    public class HomeControllerSpec
+    public class PlacesControllerSpec
     {
         private PlacesController _controller;
 
@@ -24,6 +20,13 @@ namespace Garcom.Test.Unit.Controllers
         {
             var result = _controller.New();
             Assert.That(result, Is.InstanceOf(typeof (ViewResult)));
+        }
+
+        [Test]
+        public void ItShouldListAllThePlaces()
+        {
+            var result = _controller.Index();
+            Assert.That(result, Is.InstanceOf(typeof(ViewResult)));
         }
     }
     

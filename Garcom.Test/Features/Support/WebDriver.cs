@@ -1,14 +1,17 @@
 ﻿using System.Text;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Firefox;
 using Selenium;
 using TechTalk.SpecFlow;
 
 namespace Garcom.Test.Features.Support
 {
-    public class SeleniumDriver
+    public class WebDriver
     {
-        private static ISelenium _driver;
+        private static IWebDriver _driver;
 
-        public static ISelenium Driver
+        public static IWebDriver Driver
         {
             get
             {
@@ -21,10 +24,13 @@ namespace Garcom.Test.Features.Support
         {
             if (_driver == null)
             {
-                _driver = new DefaultSelenium("localhost", 4444,
-                                              @"*firefox3 C:\Program Files (x86)\Firefox3\firefox.exe",
-                                              "http://localhost/Garcom/");
-                _driver.Start();
+
+                _driver = new ChromeDriver();
+                    
+                    //new DefaultSelenium("localhost", 4444,
+                    //                          @"*firefox3 C:\Program Files (x86)\Firefox3\firefox.exe",
+                    //                          "http://localhost/Garcom/");
+                
             }
 
             ScenarioContext.Current["selenium"] = _driver;

@@ -99,8 +99,8 @@
       <DependentUpon>RegisterNewPlace.feature</DependentUpon>
     </Compile>
     <Compile Include="Features\StepDefintions\RegisterNewFeatureSteps.cs" />
-    <Compile Include="Features\Support\SeleniumDriver.cs" />
-    <Compile Include="Unit\Controllers\HomeControllerSpec.cs" />
+    <Compile Include="Features\Support\WebDriver.cs" />
+    <Compile Include="Unit\Controllers\PlacesControllerSpec.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
