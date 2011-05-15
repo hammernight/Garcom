@@ -3,20 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Garcom.Models;
 
 namespace Garcom.Controllers
 {
-    public class HomeController : Controller
+    public class PlacesController : Controller
     {
-        //
-        // GET: /Home/
-
-        public ActionResult Index()
+        public ViewResult New()
         {
-            new Test().TestingMongo();
             return View();
         }
-
     }
 }

@@ -57,6 +57,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -92,26 +93,31 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RegisterNewPlace.feature.cs">
+    <Compile Include="Features\RegisterNewPlace.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RegisterNewPlace.feature</DependentUpon>
     </Compile>
-    <Compile Include="Functional\RegisterNewPlaceSpec.cs" />
-    <Compile Include="StepDefinition1.cs" />
-    <Compile Include="Support\SeleniumServer.cs" />
+    <Compile Include="Features\StepDefintions\RegisterNewFeatureSteps.cs" />
+    <Compile Include="Features\Support\SeleniumDriver.cs" />
+    <Compile Include="Unit\Controllers\HomeControllerSpec.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
-    <None Include="RegisterNewPlace.feature">
+    <None Include="Features\RegisterNewPlace.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>RegisterNewPlace.feature.cs</LastGenOutput>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Garcom\Garcom.csproj">
+      <Project>{491DF5CD-7FC5-40D4-9285-50110B7E1272}</Project>
+      <Name>Garcom</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
