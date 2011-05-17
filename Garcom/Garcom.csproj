@@ -155,7 +155,9 @@
           <AutoAssignPort>False</AutoAssignPort>
           <DevelopmentServerPort>6666</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost/Garcom</IISUrl>
+          <IISUrl>http://localhost:8080/Garcom</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>http://localhost:8080/Garcom</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
