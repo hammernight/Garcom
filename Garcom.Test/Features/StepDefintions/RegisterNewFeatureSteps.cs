@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Garcom.Test.Features.Support;
 using NUnit.Framework;
 using OpenQA.Selenium;
@@ -40,6 +41,13 @@ namespace Garcom.Test.Features.StepDefintions
         public void WhenIClickOnSubmit(string buttonId)
         {
             WebDriver.Driver.FindElement(By.Id(buttonId)).Click();
+        }
+
+        [Then(@"I should see ""(.*)""")]
+        public void ThenIShouldSeeUsinaDosPasteis(string content)
+        {
+            Assert.That(WebDriver.Driver.FindElements(By.TagName("li"))
+                .Any(e => e.Text.Contains(content)), Is.True);
         }
 
 

@@ -5,7 +5,7 @@ using TechTalk.SpecFlow;
 
 namespace Garcom.Test.Features.Support
 {
-    public class WebDriver
+    public static class WebDriver
     {
         private static IWebDriver _driver;
 
