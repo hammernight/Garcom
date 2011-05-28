@@ -65,6 +65,8 @@ this.ScenarioSetup(scenarioInfo);
  testRunner.Given("I am at the register new place page");
 #line 8
  testRunner.When("I fill in \"name\" with \"Usina dos Pasteis\"");
+#line 9
+ testRunner.And("I click on \"submit\"");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
@@ -74,11 +76,11 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void RegisteringANewPlaceThroughTheAllPlacesPage()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Registering a new place through the all places page", ((string[])(null)));
-#line 10
-this.ScenarioSetup(scenarioInfo);
 #line 11
- testRunner.Given("I am at the all places page");
+this.ScenarioSetup(scenarioInfo);
 #line 12
+ testRunner.Given("I am at the all places page");
+#line 13
  testRunner.When("I fill in \"name\" with \"Usina dos Pasteis\"");
 #line hidden
             testRunner.CollectScenarioErrors();

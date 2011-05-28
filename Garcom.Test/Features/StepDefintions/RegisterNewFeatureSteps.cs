@@ -36,5 +36,12 @@ namespace Garcom.Test.Features.StepDefintions
             WebDriver.Driver.FindElement(By.Id(fieldId)).SendKeys(fieldValue);
         }
 
+        [When(@"I click on ""(.*)""")]
+        public void WhenIClickOnSubmit(string buttonId)
+        {
+            WebDriver.Driver.FindElement(By.Id(buttonId)).Click();
+        }
+
+
     }
 }
