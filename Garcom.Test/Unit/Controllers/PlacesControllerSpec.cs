@@ -15,7 +15,7 @@ namespace Garcom.Test.Unit.Controllers
         [SetUp]
         public void Setup()
         {
-            _allPlaces = new Mock<AllPlaces>(MockBehavior.Loose);
+            _allPlaces = new Mock<AllPlaces>(MockBehavior.Loose, null);
             _controller = new PlacesController(_allPlaces.Object);
         }
 

@@ -41,7 +41,9 @@ namespace Garcom
 
             var container = new UnityContainer();
 
+            container.RegisterType<Models.MongoDB>(new HierarchicalLifetimeManager());
             container.RegisterControllers();
+
 
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }

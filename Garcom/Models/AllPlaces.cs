@@ -5,11 +5,11 @@ namespace Garcom.Models
 {
     public class AllPlaces
     {
-        private readonly MongoDatabase _dataBase;
+        private readonly MongoDB _mongoDB;
 
-        public AllPlaces(MongoDatabase dataBase)
+        public AllPlaces(MongoDB mongoDB)
         {
-            _dataBase = dataBase;
+            _mongoDB = mongoDB;
         }
 
         public virtual void Save(Place place)
