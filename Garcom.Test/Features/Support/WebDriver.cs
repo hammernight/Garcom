@@ -20,12 +20,8 @@ namespace Garcom.Test.Features.Support
 
         public static void Initialize()
         {
-            if (_driver == null)
-            {
-                //_driver = new ChromeDriver();
-                _driver = new InternetExplorerDriver();
-            }
-
+            _driver = _driver ?? new InternetExplorerDriver();
+            
             ScenarioContext.Current["selenium"] = _driver;
             ScenarioContext.Current["selenium-errors"] = new StringBuilder();
             ScenarioContext.Current["StepCounter"] = 0;

@@ -1,6 +1,8 @@
-﻿using Garcom.Test.Features.Support;
+﻿using System;
+using Garcom.Test.Features.Support;
 using NUnit.Framework;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 using TechTalk.SpecFlow;
 
 namespace Garcom.Test.Features.StepDefintions
@@ -12,7 +14,8 @@ namespace Garcom.Test.Features.StepDefintions
         public void GivenIAmAtTheRegisterNewPlacePage()
         {
             WebDriver.Driver.Navigate().GoToUrl("http://localhost/Garcom/places/new");
-
+            new WebDriverWait(WebDriver.Driver, new TimeSpan(0, 0, 10))
+                .Until(driver => driver.Title.Contains("New"));
             var title = WebDriver.Driver.Title;
             Assert.That(title, Is.StringContaining("New"));
         }
@@ -21,29 +24,17 @@ namespace Garcom.Test.Features.StepDefintions
         public void GivenIAmAtTheAllPlaces()
         {
             WebDriver.Driver.Navigate().GoToUrl("http://localhost/Garcom/places");
-
+            new WebDriverWait(WebDriver.Driver, new TimeSpan(0, 0, 10))
+                .Until(driver => driver.Title.Contains("All"));
             var title = WebDriver.Driver.Title;
-            Assert.That(title, Is.StringContaining("New"));
+            Assert.That(title, Is.StringContaining("All Places"));
         }
 
-        [Then("I should be at the all places page")]
-        public void ShouldBeAtTheAllPlacesPage()
+        [When(@"I fill in ""(.*)"" with ""(.*)""")]
+        public void WhenIFillInNameWithUsinaDosPasteis(string fieldId, string fieldValue)
         {
-            var title = WebDriver.Driver.Title;
-            Assert.That(title, Is.StringContaining("Places"));
+            WebDriver.Driver.FindElement(By.Id(fieldId)).SendKeys(fieldValue);
         }
 
-        [When("I click submit")]
-        public void WhenIClickSubmit() { WebDriver.Driver.FindElement(By.Name("submit")).Click(); }
-
-        [When("I fill in the name with (.*)")]
-        public void WhenIFillOut(string name) { WebDriver.Driver.FindElement(By.Id("name")).SendKeys(name); }
-
-        [Then("I should see (.*)")]
-        public void ShouldSee(string text)
-        {
-            var body = WebDriver.Driver.FindElement(By.TagName("body")).Text;
-            Assert.That(body, Is.StringContaining(text));
-        }
     }
 }

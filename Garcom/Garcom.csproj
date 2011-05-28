@@ -88,6 +88,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AllPlaces.cs" />
+    <Compile Include="Models\Menu.cs" />
     <Compile Include="Models\MongoDB.cs" />
     <Compile Include="Models\Place.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
