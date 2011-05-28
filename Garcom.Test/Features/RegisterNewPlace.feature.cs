@@ -84,6 +84,10 @@ this.ScenarioSetup(scenarioInfo);
  testRunner.Given("I am at the all places page");
 #line 14
  testRunner.When("I fill in \"name\" with \"Usina dos Pasteis\"");
+#line 15
+ testRunner.And("I click on \"create_place_with_ajax\"");
+#line 16
+ testRunner.Then("I should see \"Usina dos Pasteis\"");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
