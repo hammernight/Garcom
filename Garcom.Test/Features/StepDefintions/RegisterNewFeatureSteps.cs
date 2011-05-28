@@ -12,7 +12,16 @@ namespace Garcom.Test.Features.StepDefintions
         public void GivenIAmAtTheRegisterNewPlacePage()
         {
             WebDriver.Driver.Navigate().GoToUrl("http://localhost/Garcom/places/new");
-             
+
+            var title = WebDriver.Driver.Title;
+            Assert.That(title, Is.StringContaining("New"));
+        }
+
+        [Given("I am at the all places page")]
+        public void GivenIAmAtTheAllPlaces()
+        {
+            WebDriver.Driver.Navigate().GoToUrl("http://localhost/Garcom/places");
+
             var title = WebDriver.Driver.Title;
             Assert.That(title, Is.StringContaining("New"));
         }
@@ -25,15 +34,10 @@ namespace Garcom.Test.Features.StepDefintions
         }
 
         [When("I click submit")]
-        public void WhenIClickSubmit()
-        {
-            WebDriver.Driver.FindElement(By.Name("submit")).Click();
-        }
+        public void WhenIClickSubmit() { WebDriver.Driver.FindElement(By.Name("submit")).Click(); }
+
         [When("I fill in the name with (.*)")]
-        public void WhenIFillOut(string name)
-        {
-            WebDriver.Driver.FindElement(By.Id("name")).SendKeys("Pallatus");
-        }
+        public void WhenIFillOut(string name) { WebDriver.Driver.FindElement(By.Id("name")).SendKeys(name); }
 
         [Then("I should see (.*)")]
         public void ShouldSee(string text)

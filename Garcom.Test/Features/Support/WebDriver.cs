@@ -1,8 +1,6 @@
 ﻿using System.Text;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Firefox;
-using Selenium;
+using OpenQA.Selenium.IE;
 using TechTalk.SpecFlow;
 
 namespace Garcom.Test.Features.Support
@@ -24,7 +22,8 @@ namespace Garcom.Test.Features.Support
         {
             if (_driver == null)
             {
-                _driver = new ChromeDriver();
+                //_driver = new ChromeDriver();
+                _driver = new InternetExplorerDriver();
             }
 
             ScenarioContext.Current["selenium"] = _driver;

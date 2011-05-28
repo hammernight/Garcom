@@ -1,56 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Web;
 using MongoDB.Bson;
 using MongoDB.Driver;
 
 namespace Garcom.Models
 {
-    public class MongoDB  : IDisposable
+    public class MongoDB : IDisposable
     {
-        private MongoServer _server;
         private MongoDatabase _database;
+        private MongoServer _server;
 
-        public MongoDB()
-        {
-        }
+        private MongoServer Server { get { return _server = _server ?? CreateServer(); } }
 
-        public virtual void Dispose()
-        {
-            Disconnect();
-        }
+        private MongoDatabase Database { get { return _database = _database ?? CreateDatabase(); } }
 
-        private void Disconnect()
-        {
-            Server.Disconnect();
-        }
+        public virtual void Dispose() { Disconnect(); }
 
-        private MongoServer Server
-        {
-            get
-            {
-                return _server = _server ?? MongoServer.Create("mongodb://localhost");
-            }
-        }
+        private MongoServer CreateServer() { return MongoServer.Create("mongodb://localhost"); }
+        private MongoDatabase CreateDatabase() { return Server.GetDatabase("test"); }
 
-        private MongoDatabase Database
-        {
-            get
-            {
-                return _database = _database ??  Server.GetDatabase("test");
-            }
-        }
+        private void Disconnect() { Server.Disconnect(); }
 
-        public virtual IEnumerable<T> Collection<T> (string collectionName)
+        public virtual IEnumerable<T> Collection<T>(string collectionName)
         {
-            using(var request = Server.RequestStart(Database))
+            using (var request = Server.RequestStart(Database))
             {
                 var collection = Database.GetCollection<T>(collectionName);
                 return collection.FindAll().AsEnumerable();
             }
-            
         }
 
         public virtual T Save<T>(string collectionName, T entity)

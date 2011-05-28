@@ -10,9 +10,6 @@ namespace Garcom.Test.Unit.Controllers
     [TestFixture]
     public class PlacesControllerSpec
     {
-        private PlacesController _controller;
-        private Mock<AllPlaces> _allPlaces;
-
         [SetUp]
         public void Setup()
         {
@@ -20,46 +17,51 @@ namespace Garcom.Test.Unit.Controllers
             _controller = new PlacesController(_allPlaces.Object);
         }
 
+        private PlacesController _controller;
+        private Mock<AllPlaces> _allPlaces;
+
         [Test]
-        public void ItShouldProvideAFormToRegisterANewPlace()
+        [Ignore]
+        public void DB()
         {
-            var result = _controller.New();
-            Assert.That(result, Is.InstanceOf(typeof (ViewResult)));
+            var place = new Place("test 3");
+            var mongo = new Models.MongoDB();
+            mongo.Save("places", place);
+            place.Name = "test 5";
+            mongo.Save("places", place);
+            mongo.Save("places", new Place("test 4"));
         }
 
         [Test]
         public void ItShouldListAllThePlaces()
         {
-            var allPlaces = new List<Place> { new Place("a"), new Place("b") };
+            var allPlaces = new List<Place> {new Place("a"), new Place("b")};
             _allPlaces.SetupGet(it => it.All).Returns(allPlaces);
 
             var result = _controller.Index();
-            
-            Assert.That(result, Is.InstanceOf(typeof(ViewResult)));
+
+            Assert.That(result, Is.InstanceOf(typeof (ViewResult)));
             Assert.That(result.Model, Is.SameAs(allPlaces));
         }
 
         [Test]
         public void ItShouldListAllThePlacesAsAPartial()
         {
-            var allPlaces = new List<Place> { new Place("a"), new Place("b") };
+            var allPlaces = new List<Place> {new Place("a"), new Place("b")};
             _allPlaces.SetupGet(it => it.All).Returns(allPlaces);
 
             var result = _controller.ListOfPlaces() as PartialViewResult;
 
-            Assert.That(result, Is.InstanceOf(typeof(PartialViewResult)));
+            Assert.That(result, Is.InstanceOf(typeof (PartialViewResult)));
             Assert.That(result.Model, Is.SameAs(allPlaces));
             Assert.That(result.ViewName, Is.EqualTo("_listOfPlaces"));
         }
 
         [Test]
-        public void WhenCreatingItShouldRedirectToThePlacesList()
+        public void ItShouldProvideAFormToRegisterANewPlace()
         {
-            var place = new Place("some place");
-            var result = _controller.Create(place) as RedirectToRouteResult;
-            Assert.That(result,Is.Not.Null);
-            Assert.That(result.RouteValues["controller"], Is.EqualTo("places"));
-            Assert.That(result.RouteValues["action"], Is.EqualTo("index"));
+            var result = _controller.New();
+            Assert.That(result, Is.InstanceOf(typeof (ViewResult)));
         }
 
         [Test]
@@ -79,15 +81,13 @@ namespace Garcom.Test.Unit.Controllers
         }
 
         [Test]
-        [Ignore]
-        public void DB ()
+        public void WhenCreatingItShouldRedirectToThePlacesList()
         {
-            var place = new Place("test 3");
-            var mongo = new Models.MongoDB();
-            mongo.Save("places", place);
-            place.Name = "test 5";
-            mongo.Save("places", place);
-            mongo.Save("places", new Place("test 4"));
+            var place = new Place("some place");
+            var result = _controller.Create(place) as RedirectToRouteResult;
+            Assert.That(result, Is.Not.Null);
+            Assert.That(result.RouteValues["controller"], Is.EqualTo("places"));
+            Assert.That(result.RouteValues["action"], Is.EqualTo("index"));
         }
     }
 }

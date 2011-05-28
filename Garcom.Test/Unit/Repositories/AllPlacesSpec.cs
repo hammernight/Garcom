@@ -7,9 +7,6 @@ namespace Garcom.Test.Unit.Repositories
     [TestFixture]
     public class AllPlacesSpec
     {
-        private AllPlaces _allPlaces;
-        private Mock<Models.MongoDB> _mongoDB;
-
         [SetUp]
         public void Setup()
         {
@@ -17,11 +14,14 @@ namespace Garcom.Test.Unit.Repositories
             _allPlaces = new AllPlaces(_mongoDB.Object);
         }
 
+        private AllPlaces _allPlaces;
+        private Mock<Models.MongoDB> _mongoDB;
+
         [Test]
         public void WhenSavingItShouldDelegateToMongoAbstraction()
         {
             var place = new Place("fooBarBazQuux");
-            
+
             _allPlaces.Save(place);
 
             _mongoDB.Verify(it => it.Save("places", place));

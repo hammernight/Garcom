@@ -6,19 +6,10 @@ namespace Garcom.Models
     {
         private readonly MongoDB _mongoDB;
 
-        public AllPlaces(MongoDB mongoDB)
-        {
-            _mongoDB = mongoDB;
-        }
+        public AllPlaces(MongoDB mongoDB) { _mongoDB = mongoDB; }
 
-        public virtual IEnumerable<Place> All
-        {
-            get { return _mongoDB.Collection<Place>("places"); }
-        }
+        public virtual IEnumerable<Place> All { get { return _mongoDB.Collection<Place>("places"); } }
 
-        public virtual void Save(Place place)
-        {
-            _mongoDB.Save("places", place);
-        }
+        public virtual void Save(Place place) { _mongoDB.Save("places", place); }
     }
 }
