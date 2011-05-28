@@ -24,6 +24,7 @@ namespace Garcom.Controllers
             return View("index", _allPlaces.All);
         }
 
+        [AcceptVerbs(HttpVerbs.Get)]
         public ActionResult ListOfPlaces()
         {
             return PartialView("_listOfPlaces", _allPlaces.All);

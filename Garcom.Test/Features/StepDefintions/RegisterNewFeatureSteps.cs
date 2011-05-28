@@ -32,7 +32,7 @@ namespace Garcom.Test.Features.StepDefintions
         [When("I fill in the name with (.*)")]
         public void WhenIFillOut(string name)
         {
-            WebDriver.Driver.FindElement(By.Name("name")).SendKeys(name);
+            WebDriver.Driver.FindElement(By.Id("name")).SendKeys("Pallatus");
         }
 
         [Then("I should see (.*)")]

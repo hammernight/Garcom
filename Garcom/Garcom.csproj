@@ -97,6 +97,7 @@
     <Content Include="Content\Images\waiter_black.png" />
     <Content Include="Global.asax" />
     <Content Include="Content\Stylesheets\Garcom.css" />
+    <Content Include="Scripts\garcom.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

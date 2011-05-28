@@ -13,8 +13,10 @@
 <div id="add_new_place_form">
     <label for="name">Name</label>
     <input type="text" name="name" id="name" /> 
-    <input type="button" value="Add" data-uri="@Url.Action("CreateAjax", "places")" />
+    <input type="button" id="create_place_with_ajax" value="Add" data-uri="@Url.Action("CreateAjax", "places")" />
 </div>
-
+<script language="javascript" type="text/javascript">
+    garcom.allPlaces.initialize();
+</script>
 
 
