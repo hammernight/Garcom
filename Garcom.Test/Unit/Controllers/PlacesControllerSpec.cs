@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Collections.Generic;
+using System.Web.Mvc;
 using Garcom.Controllers;
 using Garcom.Models;
 using Moq;
@@ -29,8 +30,26 @@ namespace Garcom.Test.Unit.Controllers
         [Test]
         public void ItShouldListAllThePlaces()
         {
+            var allPlaces = new List<Place> { new Place("a"), new Place("b") };
+            _allPlaces.SetupGet(it => it.All).Returns(allPlaces);
+
             var result = _controller.Index();
+            
             Assert.That(result, Is.InstanceOf(typeof(ViewResult)));
+            Assert.That(result.Model, Is.SameAs(allPlaces));
+        }
+
+        [Test]
+        public void ItShouldListAllThePlacesAsAPartial()
+        {
+            var allPlaces = new List<Place> { new Place("a"), new Place("b") };
+            _allPlaces.SetupGet(it => it.All).Returns(allPlaces);
+
+            var result = _controller.ListOfPlaces() as PartialViewResult;
+
+            Assert.That(result, Is.InstanceOf(typeof(PartialViewResult)));
+            Assert.That(result.Model, Is.SameAs(allPlaces));
+            Assert.That(result.ViewName, Is.EqualTo("_listOfPlaces"));
         }
 
         [Test]
@@ -44,11 +63,31 @@ namespace Garcom.Test.Unit.Controllers
         }
 
         [Test]
+        public void WhenCreatingAsAjaxItShouldDelegateToTheRespository()
+        {
+            var place = new Place("some place");
+            _controller.CreateAjax(place);
+            _allPlaces.Verify(it => it.Save(place));
+        }
+
+        [Test]
         public void WhenCreatingItShouldDelegateToTheRepository()
         {
             var place = new Place("some place");
             _controller.Create(place);
             _allPlaces.Verify(it => it.Save(place));
+        }
+
+        [Test]
+        [Ignore]
+        public void DB ()
+        {
+            var place = new Place("test 3");
+            var mongo = new Models.MongoDB();
+            mongo.Save("places", place);
+            place.Name = "test 5";
+            mongo.Save("places", place);
+            mongo.Save("places", new Place("test 4"));
         }
     }
 }

@@ -55,10 +55,10 @@ namespace Garcom.Test.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Registering a new place")]
-        public virtual void RegisteringANewPlace()
+        [NUnit.Framework.DescriptionAttribute("Registering a new place using the add new place page")]
+        public virtual void RegisteringANewPlaceUsingTheAddNewPlacePage()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Registering a new place", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Registering a new place using the add new place page", ((string[])(null)));
 #line 6
 this.ScenarioSetup(scenarioInfo);
 #line 7
@@ -73,6 +73,29 @@ this.ScenarioSetup(scenarioInfo);
  testRunner.And("I should see place created successfully");
 #line 12
  testRunner.And("I should see Pallatus");
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Registering a new place through the all places page")]
+        [NUnit.Framework.TestCaseAttribute("silva", new string[0])]
+        [NUnit.Framework.TestCaseAttribute("forty two", new string[0])]
+        public virtual void RegisteringANewPlaceThroughTheAllPlacesPage(string name, string[] exampleTags)
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Registering a new place through the all places page", exampleTags);
+#line 14
+this.ScenarioSetup(scenarioInfo);
+#line 15
+ testRunner.Given("I am at all places page");
+#line 16
+ testRunner.When(string.Format("I fill in the name with {0}", name));
+#line 17
+ testRunner.And("I click submit");
+#line 18
+ testRunner.Then("I should see place created successfully");
+#line 19
+ testRunner.And(string.Format("I should see {0}", name));
 #line hidden
             testRunner.CollectScenarioErrors();
         }

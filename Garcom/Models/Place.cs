@@ -1,14 +1,20 @@
-﻿using System;
+﻿using MongoDB.Bson;
 
 namespace Garcom.Models
 {
     public class Place
     {
-        private readonly string _name;
+        public string Name { get; set; }
+        public BsonObjectId Id { get; set; }
+
+        public Place()
+        {
+            
+        }
 
         public Place(string name)
         {
-            _name = name;
+            Name = name;
         }
     }
 }

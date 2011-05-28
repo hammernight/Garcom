@@ -1,4 +1,6 @@
-﻿@{
+﻿@model IEnumerable<Garcom.Models.Place>
+
+@{
     ViewBag.Title = "All Places";
 }
 
@@ -6,7 +8,13 @@
     place created successfully
 </span>
 
-<ul class="places">
-    <li class="place">Pallatus</li>
-</ul>
+@Html.Partial("_listOfPlaces", Model)
+
+<div id="add_new_place_form">
+    <label for="name">Name</label>
+    <input type="text" name="name" id="name" /> 
+    <input type="button" value="Add" data-uri="@Url.Action("CreateAjax", "places")" />
+</div>
+
+
 
