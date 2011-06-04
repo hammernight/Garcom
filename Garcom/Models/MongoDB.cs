@@ -31,6 +31,16 @@ namespace Garcom.Models
             }
         }
 
+       public virtual void Delete(string collectionName)
+       {
+           using (var request = Server.RequestStart(Database))
+           {
+               var collection = Database.GetCollection(collectionName);
+               collection.Drop();
+           }
+       }
+        
+
         public virtual T Save<T>(string collectionName, T entity)
         {
             using (var request = Server.RequestStart(Database))

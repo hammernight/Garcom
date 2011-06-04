@@ -42,6 +42,8 @@ namespace Garcom.Test.Features
             testRunner.OnFeatureEnd();
             testRunner = null;
         }
+
+
         
         public virtual void ScenarioSetup(TechTalk.SpecFlow.ScenarioInfo scenarioInfo)
         {
@@ -75,7 +77,7 @@ this.ScenarioSetup(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Registering a new place through the all places page")]
-        public virtual void RegisteringANewPlaceThroughTheAllPlacesPage()
+        public virtual void  RegisteringANewPlaceThroughTheAllPlacesPage()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Registering a new place through the all places page", ((string[])(null)));
 #line 12
