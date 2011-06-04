@@ -110,6 +110,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Features\AddMenuItems.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AddMenuItems.feature</DependentUpon>
+    </Compile>
     <Compile Include="Features\Support\FeatureHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Features\RegisterNewPlace.feature.cs">
@@ -125,6 +130,10 @@
   <ItemGroup>
     <None Include="App.config">
       <SubType>Designer</SubType>
+    </None>
+    <None Include="Features\AddMenuItems.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>AddMenuItems.feature.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
     <None Include="Features\RegisterNewPlace.feature">
