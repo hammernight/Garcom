@@ -11,7 +11,7 @@ namespace Garcom.Test.Features.Support
             WebDriver.Initialize();
         }
 
-        [AfterScenario]
+        [BeforeScenario]
         public static void StartScenario()
         {
             new Models.MongoDB().Delete("places");
@@ -20,7 +20,7 @@ namespace Garcom.Test.Features.Support
         [AfterFeature]
         public static void KillBrowser()
         {
-            WebDriver.Driver.Close();
+            WebDriver.Driver.Quit();
         }
     }
 }

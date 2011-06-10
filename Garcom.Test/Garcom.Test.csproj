@@ -115,7 +115,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AddMenuItems.feature</DependentUpon>
     </Compile>
+    <Compile Include="Features\Support\BasePage.cs" />
     <Compile Include="Features\Support\FeatureHelper.cs" />
+    <Compile Include="Features\Support\TestHelper.cs" />
+    <Compile Include="Integration\PlaceOrderWithNewPlaceAjax.cs" />
+    <Compile Include="Pages\AllPlacesPage.cs" />
+    <Compile Include="Pages\NewPlacesPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Features\RegisterNewPlace.feature.cs">
       <AutoGen>True</AutoGen>
@@ -147,9 +152,7 @@
       <Name>Garcom</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Pages\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

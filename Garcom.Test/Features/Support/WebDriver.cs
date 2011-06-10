@@ -14,15 +14,28 @@ namespace Garcom.Test.Features.Support
         {
             get
             {
-                Initialize();
+                Initialize(false);
                 return _driver;
             }
         }
 
-        public static void Initialize()
+        public static void Initialize(bool force=true)
         {
-            _driver = _driver ?? new InternetExplorerDriver();
+            if (force)
+            {
+                _driver = new InternetExplorerDriver();               
+            }
+            else
+            {
+                _driver = _driver ?? new InternetExplorerDriver();              
+            }
             _driver.Manage().Timeouts().ImplicitlyWait(new TimeSpan(0, 0, 30));           
+        }
+
+        public static void Quit()
+        {
+            _driver.Close();
+            _driver.Quit();
         }
 
     }

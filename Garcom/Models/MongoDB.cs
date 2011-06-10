@@ -33,10 +33,17 @@ namespace Garcom.Models
 
        public virtual void Delete(string collectionName)
        {
-           using (var request = Server.RequestStart(Database))
+           try
            {
-               var collection = Database.GetCollection(collectionName);
-               collection.Drop();
+               using (var request = Server.RequestStart(Database))
+               {
+                   var collection = Database.GetCollection(collectionName);
+                   collection.Drop();
+               }
+           }
+           catch (Exception e)
+           {
+               Console.WriteLine(e);
            }
        }
         
