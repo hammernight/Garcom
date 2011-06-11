@@ -130,6 +130,8 @@
     <Compile Include="Features\StepDefintions\RegisterNewFeatureSteps.cs" />
     <Compile Include="Features\Support\WebDriver.cs" />
     <Compile Include="Unit\Controllers\PlacesControllerSpec.cs" />
+    <Compile Include="Unit\Models\MenuSpec.cs" />
+    <Compile Include="Unit\Models\PlaceSpec.cs" />
     <Compile Include="Unit\Repositories\AllPlacesSpec.cs" />
   </ItemGroup>
   <ItemGroup>

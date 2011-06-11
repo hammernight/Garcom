@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using MongoDB.Bson;
 using MongoDB.Driver;
+using MongoDB.Driver.Builders;
 
 namespace Garcom.Models
 {
-    public class MongoDB : IDisposable
+    public class MongoWrapper : IDisposable
     {
         private MongoDatabase _database;
         private MongoServer _server;
@@ -47,6 +48,16 @@ namespace Garcom.Models
            }
        }
         
+        public virtual T FindById<T>(string collectionName, string id) where T : class
+        {
+            using(var request = Server.RequestStart(Database))
+            {
+                var collection = Database.GetCollection<T>(collectionName);
+                var entity = collection.FindOne(Query.EQ("_id", new BsonObjectId(id)));
+                return entity as T;
+            }
+        }
+
 
         public virtual T Save<T>(string collectionName, T entity)
         {

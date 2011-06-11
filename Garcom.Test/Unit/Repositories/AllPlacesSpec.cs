@@ -10,12 +10,12 @@ namespace Garcom.Test.Unit.Repositories
         [SetUp]
         public void Setup()
         {
-            _mongoDB = new Mock<Models.MongoDB>(MockBehavior.Loose);
+            _mongoDB = new Mock<Garcom.Models.MongoWrapper>(MockBehavior.Loose);
             _allPlaces = new AllPlaces(_mongoDB.Object);
         }
 
         private AllPlaces _allPlaces;
-        private Mock<Models.MongoDB> _mongoDB;
+        private Mock<Garcom.Models.MongoWrapper> _mongoDB;
 
         [Test]
         public void WhenSavingItShouldDelegateToMongoAbstraction()

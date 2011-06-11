@@ -14,7 +14,7 @@ namespace Garcom.Test.Features.Support
         [BeforeScenario]
         public static void StartScenario()
         {
-            new Models.MongoDB().Delete("places");
+            new Models.MongoWrapper().Delete("places");
         }
 
         [AfterFeature]
