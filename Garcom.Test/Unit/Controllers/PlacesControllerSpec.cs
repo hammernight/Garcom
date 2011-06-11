@@ -22,7 +22,6 @@ namespace Garcom.Test.Unit.Controllers
         [Test]
         public void ShouldAcceptAddingNewItemToAExistingPlace()
         {
-            var 
             var menuItem = new MenuItem();
             const string placeId = "42";
 

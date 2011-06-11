@@ -15,7 +15,7 @@ namespace Garcom.Test.Integration
         [SetUp]
         public void Setup()
         {
-            new Models.MongoDB().Delete("places");
+            new Models.MongoWrapper().Delete("places");
             WebDriver.Initialize();
         }
 
