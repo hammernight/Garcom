@@ -1,6 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using Garcom.Models;
 using Microsoft.Practices.Unity;
 using Unity.Mvc3;
 
@@ -16,6 +17,12 @@ namespace Garcom
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+
+
+            routes.MapRoute(
+                "MenuItemsInsidePlaces",
+                "places/{placeId}/menuItems",
+                new {controller = "places", action = "addMenuItem"});
 
             routes.MapRoute(
                 "Default",
@@ -35,7 +42,7 @@ namespace Garcom
 
             var container = new UnityContainer();
 
-            container.RegisterType<Models.MongoDB>(new HierarchicalLifetimeManager());
+            container.RegisterType<MongoWrapper>(new HierarchicalLifetimeManager());
             container.RegisterControllers();
 
 

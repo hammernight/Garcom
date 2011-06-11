@@ -12,7 +12,7 @@ namespace Garcom.Test.Features.Support
     {
         public static void GetReady()
         {
-            new Models.MongoDB().Delete("places");
+            new Models.MongoWrapper().Delete("places");
             WebDriver.Initialize();
         }
 

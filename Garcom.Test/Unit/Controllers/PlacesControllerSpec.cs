@@ -8,6 +8,32 @@ using NUnit.Framework;
 namespace Garcom.Test.Unit.Controllers
 {
     [TestFixture]
+    public class MenuItemsControllerSpec
+    {
+        private Mock<AllPlaces> _allPlaces;
+        private MenuItemsController _controller;
+
+        [SetUp]
+        public void Setup()
+        {
+            _allPlaces = new Mock<AllPlaces>(MockBehavior.Loose, null);
+            _controller = new MenuItemsController(_allPlaces.Object);
+        }
+        [Test]
+        public void ShouldAcceptAddingNewItemToAExistingPlace()
+        {
+            var menuItem = new MenuItem();
+            const string placeId = "42";
+
+
+
+            _controller.AddMenuItem(placeId, menuItem);
+
+
+        }
+    }
+
+    [TestFixture]
     public class PlacesControllerSpec
     {
         [SetUp]
@@ -19,18 +45,6 @@ namespace Garcom.Test.Unit.Controllers
 
         private PlacesController _controller;
         private Mock<AllPlaces> _allPlaces;
-
-        [Test]
-        [Ignore]
-        public void DB()
-        {
-            var place = new Place("test 3");
-            var mongo = new Models.MongoDB();
-            mongo.Save("places", place);
-            place.Name = "test 5";
-            mongo.Save("places", place);
-            mongo.Save("places", new Place("test 4"));
-        }
 
         [Test]
         public void ItShouldListAllThePlaces()
