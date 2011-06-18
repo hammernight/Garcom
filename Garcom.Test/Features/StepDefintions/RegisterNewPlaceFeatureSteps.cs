@@ -43,9 +43,8 @@ namespace Garcom.Test.Features.StepDefintions
         [Then(@"I should see ""(.*)""")]
         public void ThenIShouldSeeUsinaDosPasteis(string content)
         {
-               new WebDriverWait(WebDriver.Driver, new TimeSpan(0, 0, 10)).Until(driver => driver.FindElements(By.TagName("li")).Any());
-            Assert.That(WebDriver.Driver.FindElements(By.TagName("li"))
-                .Any(e => e.Text.Contains(content)), Is.True);
+            new WebDriverWait(WebDriver.Driver, new TimeSpan(0, 0, 10)).Until(driver => driver.FindElements(By.TagName("li")).Any());
+            Assert.That(WebDriver.Driver.FindElements(By.LinkText(content)), Is.Not.Empty);
         }
 
 

@@ -4,5 +4,18 @@
     ViewBag.Title = Model.Name;
 }
 
-<h2>Hi, you're at @Model.Name's page</h2>
+<ul>
+@foreach (var item in Model.Menu.Items)
+{
+    <li>@item.Name</li>
+}
+</ul>
+
+<form id="add_new_item_form" action="@Url.Action("addMenuItem", "menuItems")" method="post">
+    <label for="name">Name</label>
+    <input type="hidden" name="placeId" value="@Model.Id.Value" />
+    <input type="text" name="menuItem.name" id="name" /> 
+    <input type="submit" id="add_item_with_ajax" value="Add"/>
+</form>
+
 

@@ -17,7 +17,7 @@ namespace Garcom.Controllers
             var place = _allPlaces.FindById(placeId);
             place.Menu.Items.Add(menuItem);
             _allPlaces.Save(place);
-            return null;
+            return RedirectToAction("place", "places", new {id = placeId});
         }
     }
 }

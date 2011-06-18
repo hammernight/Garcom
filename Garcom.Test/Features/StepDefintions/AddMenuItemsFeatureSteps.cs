@@ -19,6 +19,21 @@ namespace Garcom.Test.Features.StepDefintions
             var place = new Place(placeName);
             new MongoWrapper().Save("places", place);
         }
+
+        [Given(@"I am at ""(.*)"" page")]
+        public void PlacesPage(string placeName)
+        {
+            var place = FeatureContext.Current["place"] as Place;
+            WebDriver.Driver.Navigate().GoToUrl("http://localhost/Garcom/places/place/" + place.Id.Value);
+        }
+
+        [Given(@"""(.*)"" sells awesome pasteis")]
+        public void SellsAwesomePasteis(string placeName)
+        {
+            var place = new Place(placeName);
+            new MongoWrapper().Save("places", place);
+            FeatureContext.Current["place"] = place;
+        }
         
 	    [When(@"I click on the name of ""(.*)""")]
         public void ClickOnTheNameOf(string placeName)

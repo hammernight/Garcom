@@ -55,10 +55,10 @@ namespace Garcom.Test.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Add menu item to list of items")]
-        public virtual void AddMenuItemToListOfItems()
+        [NUnit.Framework.DescriptionAttribute("Go to places page")]
+        public virtual void GoToPlacesPage()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add menu item to list of items", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Go to places page", ((string[])(null)));
 #line 6
 this.ScenarioSetup(scenarioInfo);
 #line 7
@@ -74,20 +74,22 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("See what items are on the menu")]
-        public virtual void SeeWhatItemsAreOnTheMenu()
+        [NUnit.Framework.DescriptionAttribute("Add menu items")]
+        public virtual void AddMenuItems()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("See what items are on the menu", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add menu items", ((string[])(null)));
 #line 12
 this.ScenarioSetup(scenarioInfo);
 #line 13
- testRunner.Given("I am on the Places page");
+ testRunner.Given("\"georges\" sells awesome pasteis");
 #line 14
- testRunner.And("The place I want to order from is an existing place");
+ testRunner.And("I am at \"georges\" page");
 #line 15
- testRunner.When("I click on the name of the place");
+ testRunner.When("I fill in \"name\" with \"Banana\"");
 #line 16
- testRunner.Then("I should see that place\'s menu items");
+ testRunner.And("I click on \"add_item_with_ajax\"");
+#line 17
+ testRunner.Then("I should see \"Banana\"");
 #line hidden
             testRunner.CollectScenarioErrors();
         }

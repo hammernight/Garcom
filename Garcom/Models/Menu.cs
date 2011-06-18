@@ -8,5 +8,8 @@ namespace Garcom.Models
         public IList<MenuItem> Items { get; set; }
     }
 
-    public class MenuItem {}
+    public class MenuItem
+    {
+        public string Name { get; set; }
+    }
 }

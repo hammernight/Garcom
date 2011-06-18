@@ -2,6 +2,7 @@
 using System.Web.Mvc;
 using Garcom.Controllers;
 using Garcom.Models;
+using MongoDB.Bson;
 using Moq;
 using NUnit.Framework;
 
@@ -23,16 +24,20 @@ namespace Garcom.Test.Unit.Controllers
         public void ShouldAcceptAddingNewItemToAExistingPlace()
         {
             var menuItem = new MenuItem();
-            var place = new Place();
-            const string placeId = "42";
+            var place = new Place {Id = ObjectId.GenerateNewId()};
+            var placeId = place.Id.Value.ToString();
 
             _allPlaces.Setup(it => it.FindById(placeId)).Returns(place);
 
-            _controller.AddMenuItem(placeId, menuItem);
+            var result = _controller.AddMenuItem(placeId, menuItem) as RedirectToRouteResult;
 
             _allPlaces.Verify(it => it.Save(place));
 
             Assert.That(place.Menu.Items, Contains.Item(menuItem));
+
+            Assert.That(result.RouteValues["controller"], Is.EqualTo("places"));
+            Assert.That(result.RouteValues["action"], Is.EqualTo("place"));
+            Assert.That(result.RouteValues["id"], Is.EqualTo(place.Id.Value.ToString()));
         }
     }
 
