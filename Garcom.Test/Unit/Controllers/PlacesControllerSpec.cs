@@ -23,13 +23,16 @@ namespace Garcom.Test.Unit.Controllers
         public void ShouldAcceptAddingNewItemToAExistingPlace()
         {
             var menuItem = new MenuItem();
+            var place = new Place();
             const string placeId = "42";
 
-
+            _allPlaces.Setup(it => it.FindById(placeId)).Returns(place);
 
             _controller.AddMenuItem(placeId, menuItem);
 
+            _allPlaces.Verify(it => it.Save(place));
 
+            Assert.That(place.Menu.Items, Contains.Item(menuItem));
         }
     }
 

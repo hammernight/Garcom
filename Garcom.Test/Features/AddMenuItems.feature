@@ -3,7 +3,6 @@
 	As hungry person
 	I want to be able to add items to a place
 
-@mytag
 Scenario: See what items are on the menu
 	Given I am on the Places page
 	And The place I want to order from existing place

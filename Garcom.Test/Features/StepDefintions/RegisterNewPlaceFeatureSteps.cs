@@ -10,7 +10,7 @@ using TechTalk.SpecFlow;
 namespace Garcom.Test.Features.StepDefintions
 {
     [Binding]
-    public class RegisterNewFeatureSteps : FeatureHelper
+    public class RegisterNewPlaceFeatureSteps : FeatureHelper
     {
         [Given("I am at the register new place page")]
         public void GivenIAmAtTheRegisterNewPlacePage()

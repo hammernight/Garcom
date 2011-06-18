@@ -26,5 +26,16 @@ namespace Garcom.Test.Unit.Repositories
 
             _mongoDB.Verify(it => it.Save("places", place));
         }
+
+        [Test]
+        public void ShouldDelegateFindByIdToTheWrapper()
+        {
+            var placeId = "42";
+            var expectedPlace = new Place();
+            _mongoDB.Setup(it => it.FindById<Place>("places", placeId)).Returns(expectedPlace);
+            var actualPlace = _allPlaces.FindById(placeId);
+
+            Assert.That(actualPlace, Is.SameAs(expectedPlace));
+        }
     }
 }

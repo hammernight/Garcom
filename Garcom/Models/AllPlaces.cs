@@ -11,5 +11,7 @@ namespace Garcom.Models
         public virtual IEnumerable<Place> All { get { return _mongoWrapper.Collection<Place>("places"); } }
 
         public virtual void Save(Place place) { _mongoWrapper.Save("places", place); }
+
+        public virtual Place FindById(string id) { return _mongoWrapper.FindById<Place>("places", id); }
     }
 }

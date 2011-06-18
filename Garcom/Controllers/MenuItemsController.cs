@@ -12,6 +12,12 @@ namespace Garcom.Controllers
             _allPlaces = allPlaces;
         }
 
-        public ActionResult AddMenuItem(string placeId, MenuItem menuItem) { throw new NotImplementedException(); }
+        public ActionResult AddMenuItem(string placeId, MenuItem menuItem)
+        {
+            var place = _allPlaces.FindById(placeId);
+            place.Menu.Items.Add(menuItem);
+            _allPlaces.Save(place);
+            return null;
+        }
     }
 }
