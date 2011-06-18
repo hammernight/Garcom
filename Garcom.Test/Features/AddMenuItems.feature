@@ -14,5 +14,5 @@ Scenario: Add menu items
 	And I am at "georges" page
 	When I fill in "name" with "Banana" 
 	And I click on "add_item_with_ajax"
-	Then I should see "Banana"
+	Then I should see list item "Banana"
 

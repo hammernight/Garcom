@@ -40,8 +40,8 @@ namespace Garcom.Test.Features.StepDefintions
             WebDriver.Driver.FindElement(By.Id(buttonId)).Click();
         }
 
-        [Then(@"I should see ""(.*)""")]
-        public void ThenIShouldSeeUsinaDosPasteis(string content)
+        [Then(@"I should see a link to ""(.*)""")]
+        public void ThenIShouldSeeALinkTo(string content)
         {
             new WebDriverWait(WebDriver.Driver, new TimeSpan(0, 0, 10)).Until(driver => driver.FindElements(By.TagName("li")).Any());
             Assert.That(WebDriver.Driver.FindElements(By.LinkText(content)), Is.Not.Empty);

@@ -6,6 +6,7 @@ using Garcom.Models;
 using Garcom.Test.Features.Support;
 using NUnit.Framework;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 using TechTalk.SpecFlow;
 
 namespace Garcom.Test.Features.StepDefintions
@@ -45,6 +46,13 @@ namespace Garcom.Test.Features.StepDefintions
         public void BeAtThePlacesPage(string placeName) 
         { 
             Assert.That(WebDriver.Driver.Title, Is.StringContaining(placeName));
+        }
+        
+        [Then(@"I should see list item ""(.*)""")]
+        public void ThenIShouldSeeListItem(string content)
+        {
+            new WebDriverWait(WebDriver.Driver, new TimeSpan(0, 0, 10)).Until(driver => driver.FindElements(By.TagName("li")).Any());
+            Assert.That(WebDriver.Driver.FindElements(By.TagName("li")).Any(e => e.Text.Contains(content)), Is.True);
         }
     }
 }
