@@ -3,6 +3,6 @@
 <ul class="places" id="list_of_places" data-uri="@Url.Action("ListOfPlaces", "places")">
     @foreach (var place in Model)
     {
-        <li class="place">@place.Name</li>    
+        <li class="place"><a href="@Url.Action("Place", "places", new { id = place.Id.Value })">@place.Name</a></li>    
     }
 </ul>

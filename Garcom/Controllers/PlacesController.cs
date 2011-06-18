@@ -29,5 +29,12 @@ namespace Garcom.Controllers
             _allPlaces.Save(place);
             return new EmptyResult();
         }
+
+        [AcceptVerbs(HttpVerbs.Get)]
+        public ActionResult Place(string id)
+        {
+            var place = _allPlaces.FindById(id);
+            return View(place);
+        }
     }
 }

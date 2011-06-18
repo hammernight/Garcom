@@ -106,5 +106,18 @@ namespace Garcom.Test.Unit.Controllers
             Assert.That(result.RouteValues["controller"], Is.EqualTo("places"));
             Assert.That(result.RouteValues["action"], Is.EqualTo("index"));
         }
+
+        [Test]
+        public void ShouldFindAPlaceAndRenderIt()
+        {
+            var place = new Place("tele china");
+            const string placeId = "42";
+            _allPlaces.Setup(it => it.FindById(placeId)).Returns(place);
+
+            var result = _controller.Place(placeId) as ViewResult;
+            Assert.That(result, Is.Not.Null);
+            Assert.That(result, Is.InstanceOf(typeof(ViewResult)));
+            Assert.That(result.Model, Is.SameAs(place));
+        }
     }
 }

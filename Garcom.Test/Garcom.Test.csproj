@@ -115,6 +115,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AddMenuItems.feature</DependentUpon>
     </Compile>
+    <Compile Include="Features\StepDefintions\AddMenuItemsFeatureSteps.cs" />
     <Compile Include="Features\Support\BasePage.cs" />
     <Compile Include="Features\Support\FeatureHelper.cs" />
     <Compile Include="Features\Support\TestHelper.cs" />
